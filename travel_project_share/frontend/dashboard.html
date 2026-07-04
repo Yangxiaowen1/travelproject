@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>华东旅数大屏</title>
+    <link rel="stylesheet" href="/assets/dashboard.css?v=20260630-screen-11" />
+    <script src="/assets/vendor/echarts.min.js?v=20260630-chart-only-7"></script>
+  </head>
+  <body>
+    <main class="screen-shell">
+      <header class="screen-header">
+        <div class="screen-title-block">
+          <p class="screen-eyebrow">EAST CHINA TOURISM DATA SCREEN</p>
+          <h1>华东地区景点分析与推荐系统</h1>
+          <small>登录后默认进入大屏，可随时切换回内容模块查看完整页面</small>
+        </div>
+
+        <div class="screen-live">
+          <div class="live-pill">
+            <label>当前时间</label>
+            <strong id="screenClock">--</strong>
+          </div>
+          <div class="live-pill">
+            <label>实时天气</label>
+            <strong id="screenWeather">定位中</strong>
+          </div>
+          <div class="live-pill">
+            <label>当前位置</label>
+            <strong id="screenLocation">定位中</strong>
+          </div>
+        </div>
+
+        <div class="screen-actions">
+          <button class="screen-button ghost" id="gotoModulesButton">内容模块</button>
+          <button class="screen-button" id="screenLogoutButton">退出登录</button>
+        </div>
+      </header>
+
+      <section class="screen-kpis" id="screenKpis"></section>
+
+      <section class="screen-main-grid">
+        <article class="screen-card map-card">
+          <div class="screen-card-head">
+            <div>
+              <h3>华东景点热力分布</h3>
+              <span>按城市景点数量、平均热度和平均评分综合呈现</span>
+            </div>
+            <em>重点区域</em>
+          </div>
+          <div class="screen-chart" id="screenHeatMapChart"></div>
+        </article>
+
+        <article class="screen-card rank-card">
+          <div class="screen-card-head">
+            <div>
+              <h3>热门景点热度排行</h3>
+              <span>展示头部景点综合热度</span>
+            </div>
+            <em>Top 10</em>
+          </div>
+          <div class="screen-chart" id="screenRankingChart"></div>
+        </article>
+
+        <article class="screen-card flow-card">
+          <div class="screen-card-head">
+            <div>
+              <h3 id="screenFlowTitle">重点城市未来 7 天客流</h3>
+              <span>自动选出峰值压力最高的城市</span>
+            </div>
+            <em>逐日预测</em>
+          </div>
+          <div class="screen-chart" id="screenFlowTrendChart"></div>
+        </article>
+
+        <article class="screen-card insight-card">
+          <div class="screen-card-head">
+            <div>
+              <h3 id="screenInsightTitle">热门主题画像</h3>
+              <span id="screenInsightSub">游客端展示热门景点主题，运营端展示用户偏好</span>
+            </div>
+            <em id="screenInsightTag">自动切换</em>
+          </div>
+          <div class="screen-chart" id="screenInsightChart"></div>
+        </article>
+
+        <article class="screen-card cluster-card">
+          <div class="screen-card-head">
+            <div>
+              <h3 id="screenClusterTitle">城市分群概览</h3>
+              <span id="screenClusterSub">展示城市类型占比和运营重点</span>
+            </div>
+            <em>KMeans</em>
+          </div>
+          <div class="cluster-layout">
+            <div class="screen-chart" id="screenClusterChart"></div>
+            <div class="cluster-list" id="screenClusterList"></div>
+          </div>
+        </article>
+
+        <article class="screen-card alert-card">
+          <div class="screen-card-head">
+            <div>
+              <h3>高峰预警景区</h3>
+              <span>未来 7 天景点级客流峰值提醒</span>
+            </div>
+            <em>Top 8</em>
+          </div>
+          <div class="screen-table-wrap">
+            <table class="screen-table">
+              <thead>
+                <tr>
+                  <th>城市</th>
+                  <th>景点</th>
+                  <th>日期</th>
+                  <th>客流</th>
+                </tr>
+              </thead>
+              <tbody id="screenAlertBody"></tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="screen-card news-card">
+          <div class="screen-card-head">
+            <div>
+              <h3>景区新闻公告栏</h3>
+              <span id="screenNewsStatus">正在获取最新旅游新闻</span>
+            </div>
+            <em>实时抓取</em>
+          </div>
+          <div class="screen-news-list" id="screenNewsBoard"></div>
+        </article>
+      </section>
+    </main>
+
+    <script src="/assets/dashboard.js?v=20260630-screen-11"></script>
+  </body>
+</html>

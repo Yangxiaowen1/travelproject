@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>携程旅游数据分析可视化、预测与推荐系统</title>
+    <link rel="stylesheet" href="/assets/styles.css?v=20260629-green-2" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">真实携程公开景点数据</p>
+          <h1>携程旅游数据分析可视化、预测与推荐系统</h1>
+          <p class="hero-text">
+            页面展示全国景点总体情况、热门城市、热门景点、价格分布、评分分布和标签分布，后续可以继续接入预测结果和推荐结果。
+          </p>
+        </div>
+        <div class="hero-side">
+          <div class="status-card">
+            <span class="status-label">当前数据状态</span>
+            <strong id="dataStatus">加载中</strong>
+            <span id="dataHint">正在读取分析结果</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="panel">
+          <div class="panel-head">
+            <h2>项目总览</h2>
+            <span class="panel-tip">基于清洗后的真实景点数据</span>
+          </div>
+          <div class="metric-grid" id="metricGrid"></div>
+        </section>
+
+        <section class="dual-grid">
+          <article class="panel">
+            <div class="panel-head">
+              <h2>热门城市</h2>
+              <span class="panel-tip">按景点数量排序</span>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>城市</th>
+                    <th>景点数</th>
+                    <th>均价</th>
+                    <th>评分</th>
+                    <th>热度</th>
+                    <th>评论量</th>
+                  </tr>
+                </thead>
+                <tbody id="cityTableBody"></tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-head">
+              <h2>标签分布</h2>
+              <span class="panel-tip">适合后续推荐特征使用</span>
+            </div>
+            <div class="bars" id="tagBars"></div>
+          </article>
+        </section>
+
+        <section class="triple-grid">
+          <article class="panel">
+            <div class="panel-head">
+              <h2>价格分布</h2>
+              <span class="panel-tip">免费与收费结构</span>
+            </div>
+            <div class="bars compact" id="priceBars"></div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-head">
+              <h2>评分分布</h2>
+              <span class="panel-tip">景点评分层级</span>
+            </div>
+            <div class="bars compact" id="scoreBars"></div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-head">
+              <h2>热门区域</h2>
+              <span class="panel-tip">按综合热度展示</span>
+            </div>
+            <div class="list-card" id="regionList"></div>
+          </article>
+        </section>
+
+        <section class="dual-grid">
+          <article class="panel">
+            <div class="panel-head">
+              <h2>高热景点 Top 10</h2>
+              <span class="panel-tip">适合首页推荐位展示</span>
+            </div>
+            <div class="poi-list" id="hotPoiList"></div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-head">
+              <h2>高评论景点 Top 10</h2>
+              <span class="panel-tip">适合做口碑榜单</span>
+            </div>
+            <div class="poi-list" id="commentPoiList"></div>
+          </article>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head">
+            <h2>内容推荐演示</h2>
+            <span class="panel-tip">根据标签、价格、评分、热度与区域相似度生成</span>
+          </div>
+          <div class="recommend-toolbar" id="recommendToolbar"></div>
+          <div class="recommend-meta" id="recommendMeta"></div>
+          <div class="poi-list" id="recommendList"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/assets/app.js"></script>
+  </body>
+</html>
